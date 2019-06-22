@@ -1,15 +1,15 @@
 import auth0 from 'auth0-js'
 import { EventEmitter } from 'events'
-import authConfig from '../../auth.config.json'
+// import authConfig from '../../auth.config.json'
 import store from '@state/store'
 
 const webAuth = new auth0.WebAuth({
-  domain: authConfig.domain,
-  audience: authConfig.audience,
-  redirectUri: `${window.location.origin}${authConfig.redirectUri}`,
-  clientID: authConfig.clientID,
-  responseType: authConfig.responseType,
-  scope: authConfig.scope,
+  domain: process.env.VUE_APP_AUTH0_DOMAIN,
+  audience: process.env.VUE_APP_AUTH0_AUDIENCE,
+  redirectUri: `${window.location.origin}${process.env.VUE_APP_AUTH0_REDIRECT_URI}`,
+  clientID: process.env.VUE_APP_AUTH0_CLIENT_ID,
+  responseType: process.env.VUE_APP_AUTH0_RESPONSE_TYPE,
+  scope: process.env.VUE_APP_AUTH0_SCOPE,
 })
 
 const localStorageKey = 'auth.identity'
@@ -40,7 +40,7 @@ class AuthService extends EventEmitter {
 
     webAuth.logout({
       returnTo: `${window.location.origin}/logout`,
-      client_id: authConfig.clientID,
+      client_id: process.env.VUE_APP_AUTH0_CLIENT_ID,
     })
 
     this.emit(loginEvent, { loggedIn: false })
