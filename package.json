@@ -1,0 +1,81 @@
+{
+  "name": "rp.dashboard.web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build --modern",
+    "now-build": "vue-cli-service build --modern",
+    "build:ci": "yarn build --report",
+    "lint:eslint": "eslint --fix",
+    "lint:stylelint": "stylelint --fix",
+    "lint:markdownlint": "markdownlint",
+    "lint:prettier": "prettier --write --loglevel warn",
+    "lint:all:eslint": "yarn lint:eslint --ext .js,.vue .",
+    "lint:all:stylelint": "yarn lint:stylelint \"src/**/*.{vue,scss}\"",
+    "lint:all:markdownlint": "yarn lint:markdownlint \"docs/*.md\" \"*.md\"",
+    "lint:all:prettier": "yarn lint:prettier \"**/*.{js,json,css,scss,vue,html,md}\"",
+    "lint": "run-s lint:all:*"
+  },
+  "gitHooks": {
+    "pre-commit": "cross-env PRE_COMMIT=true lint-staged"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "1.2.19",
+    "@fortawesome/free-solid-svg-icons": "5.9.0",
+    "@fortawesome/vue-fontawesome": "0.1.6",
+    "axios": "0.19.0",
+    "lodash": "4.17.11",
+    "normalize.css": "8.0.1",
+    "nprogress": "0.2.0",
+    "postcss-import": "^12.0.1",
+    "vue": "2.6.10",
+    "vue-meta": "2.0.3",
+    "vue-router": "3.0.6",
+    "vuedraggable": "^2.21.0",
+    "vuex": "3.1.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "7.2.x",
+    "@vue/cli-plugin-babel": "3.8.x",
+    "@vue/cli-plugin-eslint": "3.8.x",
+    "@vue/cli-service": "3.8.x",
+    "@vue/eslint-config-prettier": "4.0.x",
+    "@vue/eslint-config-standard": "4.0.x",
+    "auth0-js": "^9.10.4",
+    "babel-core": "7.0.0-bridge.0",
+    "cross-env": "5.2.x",
+    "eslint-plugin-vue": "5.2.x",
+    "express": "4.17.x",
+    "imagemin-lint-staged": "0.4.x",
+    "lint-staged": "8.2.x",
+    "markdownlint-cli": "0.17.x",
+    "node-sass": "4.12.x",
+    "npm-run-all": "4.1.x",
+    "prettier": "1.18.x",
+    "sass-loader": "7.1.x",
+    "stylelint": "10.1.x",
+    "stylelint-config-css-modules": "1.4.x",
+    "stylelint-config-prettier": "5.2.x",
+    "stylelint-config-recess-order": "2.0.x",
+    "stylelint-config-standard": "18.3.x",
+    "stylelint-scss": "3.8.x",
+    "tailwindcss": "^1.0.4",
+    "vue-template-compiler": "2.6.10"
+  },
+  "engines": {
+    "node": ">=8.9.0",
+    "yarn": ">=1.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "postcss": {
+    "plugins": {
+      "tailwindcss": "./tailwind.config.js",
+      "autoprefixer": {}
+    }
+  }
+}
