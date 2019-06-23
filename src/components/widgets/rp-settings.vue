@@ -262,7 +262,7 @@ export default {
             required
           >
             <option :value="null">select type</option>
-            <option v-for="option in options.trackTypes" :key="option.value" :value="option.value">
+            <option v-for="option in options.tags" :key="option.value" :value="option.value">
               {{ option.text.toLowerCase() }}
             </option>
           </select>
