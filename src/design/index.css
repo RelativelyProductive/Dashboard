@@ -6,8 +6,6 @@
 @import '../../node_modules/tailwindcss/components.css';
 @import './components.css';
 
-/* button */
-
 /* Utilities */
 @import '../../node_modules/tailwindcss/utilities.css';
 @import './utilities.css';

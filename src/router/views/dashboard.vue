@@ -112,13 +112,6 @@ export default {
           </div>
           <div class="display">{{ day.displayName }}</div>
         </li>
-        <!-- <li
-            v-for="day in goal.trackedEntryDetails"
-            :key="day.date"
-            :class="`test ${day.goalMet === true ? 'achieved' : 'missed'}`"
-          >
-            {{ new Date(day.date).getDay() | dayOfWeek }}
-          </li> -->
       </ul>
     </div>
   </div>
@@ -128,29 +121,27 @@ export default {
 /* stylelint-disable selector-max-type, selector-class-pattern */
 
 .welcome {
-  @apply min-h-full flex items-center justify-center;
+  @apply min-h-screen flex items-center justify-center;
 }
 
 .dashboard {
-  @apply min-h-full flex justify-end;
-
-  /* min-height: calc(100% - 64px); */
+  @apply min-h-screen flex justify-end;
 }
 
 .goal-tracker {
-  @apply flex self-center justify-end relative;
+  @apply mt-24 mr-24;
 }
 
 .goal-tracker li.day {
-  @apply flex justify-start w-24 cursor-pointer text-gray-500;
+  @apply flex justify-end w-24 cursor-pointer text-gray-500;
 }
 
 .goal-tracker li.day.today {
-  @apply text-black;
+  color: #2c4a88;
 }
 
 .goal-tracker li.day .display {
-  @apply text-4xl flex text-right leading-none;
+  @apply text-4xl flex text-right leading-tight;
 
   transition: color 300ms ease-in-out;
 }
@@ -159,17 +150,17 @@ export default {
   @apply text-black;
 }
 
+.goal-tracker li.day.today:hover .display {
+  color: #2c4a88;
+}
+
 .goal-tracker li.day.achieved:hover .display {
   @apply text-green-500;
 }
 
 .goal-tracker li.day .results-container {
-  @apply flex flex-wrap flex-row-reverse w-1/3 opacity-100;
+  @apply flex flex-wrap flex-row-reverse mr-2 opacity-100;
 }
-
-/* .goal-tracker:hover li.day:not(:hover) {
-
-} */
 
 .goal-tracker li.day .results-container .result {
   @apply pl-1 m-0 leading-none;
@@ -186,7 +177,7 @@ export default {
 }
 
 .goal-tracker li.day .results-container .result-detail {
-  @apply opacity-0 absolute;
+  @apply opacity-0 absolute mt-1;
 
   transition: opacity 300ms cubic-bezier(0.165, 0.63, 0.14, 0.82),
     transform 500ms cubic-bezier(0.165, 0.63, 0.14, 0.82);

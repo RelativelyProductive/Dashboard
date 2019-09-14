@@ -15,20 +15,29 @@ export default {
 </script>
 
 <template>
-  <div class="spinner">
-    <!-- <img src="../assets/loading.svg" alt="Loading" /> -->
+  <div class="loader">
+    <div class="col">
+      <h1>Loading..</h1>
+    </div>
   </div>
 </template>
 
-<style scoped>
-.spinner {
-  position: absolute;
+<style scoped lang="scss">
+.loader {
+  @apply absolute flex justify-center;
+
   right: 0;
   bottom: 0;
-  display: flex;
-  justify-content: center;
   width: 100vw;
   height: 100vh;
   background-color: #383838;
+
+  .col {
+    @apply flex flex-col justify-center;
+
+    h1 {
+      @apply text-white;
+    }
+  }
 }
 </style>
