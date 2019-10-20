@@ -213,29 +213,30 @@ export default {
     </div>
     <div v-if="showGoalMenu" class="goal-container">
       <div v-if="!options.clients && !options.projects && !options.tags" class="info-message">
-        You don't have any clients, projects or tags set up in Toggl. Please set these up in Toggl
-        and <a href="#" @click="refreshOptions($event)">click here to try again</a>.
+        Could not retrieve settings from Toggl.
+        <a href="#" @click="refreshOptions($event)">Click here to try again</a>.
       </div>
       <div v-else class="goal-add">
+        I
         <input
           v-model="forms.goal.name"
           class="goal-control"
           type="text"
-          placeholder="Read every day"
+          placeholder="Read"
           required
         />
-        <span class="goal-control pl-4 pr-4">for</span>
+        <span class="goal-control pl-4 pr-4">every day for</span>
         <input v-model="forms.goal.time" class="goal-control time" type="number" required />
-        <span class="goal-control pl-1">min</span>
+        <span class="goal-control pl-1">minutes</span>
         <div class="goal-settings">
-          Watching time entries with a
+          and I track by
           <select v-if="options.trackTypes" v-model="forms.goal.trackStyle" required>
             <option :value="null">select type</option>
             <option v-for="option in options.trackTypes" :key="option.value" :value="option.value">
               {{ option.text.toLowerCase() }}
             </option>
           </select>
-          <span v-if="forms.goal.trackStyle > 0" class="goal-control pl-4 pr-4">of</span>
+          <span v-if="forms.goal.trackStyle > 0" class="goal-control pl-4 pr-4">called</span>
           <select
             v-if="options.clients && forms.goal.trackStyle === 1"
             v-model="forms.goal.trackId"
